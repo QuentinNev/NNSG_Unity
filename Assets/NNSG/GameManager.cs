@@ -72,7 +72,7 @@ namespace NNSG
             new Fire();
 
             new Insurrection();
-
+            
             UI.getInstance().Write("Game is starting ...");
             KeepConsoleAlive();
         }
@@ -126,14 +126,14 @@ namespace NNSG
             Warehouse.furniture = new Furniture(config.furniture, 100);
         }
 
-
+        
         /// <summary>
         /// Create jobs given the configuration
         /// </summary>
         /// <typeparam name="T">The type of the job</typeparam>
         /// <param name="workers">The amount of f</param>
         private void AddWorkers<T>(int workers) where T : Job
-        {
+        { 
             foreach (Job job in allJobs)
             {
                 if (job is T)
@@ -171,9 +171,7 @@ namespace NNSG
 
         #region UNITY
 
-        private void Awake()
-        {
-            // GameManager must persist between session
+        private void Awake() {
             DontDestroyOnLoad(this);
         }
 

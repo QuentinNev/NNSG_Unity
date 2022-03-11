@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace NNSG.Goods
+﻿namespace NNSG.Goods
 {
     public abstract class Good
     {

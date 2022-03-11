@@ -1,5 +1,4 @@
-using System;
-using NNSG;
+using UnityEngine;
 
 namespace NNSG
 {
@@ -57,7 +56,7 @@ namespace NNSG
         /// <returns></returns>
         private int PopulationChange()
         {
-            int change = (int)Math.Ceiling(changeFactor * Person.people.Count);
+            int change = (int)Mathf.Ceil(changeFactor * Person.people.Count);
 
             return change;
         }

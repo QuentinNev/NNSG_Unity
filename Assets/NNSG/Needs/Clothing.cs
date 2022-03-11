@@ -1,5 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections.Generic;
+using System.Text;
 
 namespace NNSG.Needs
 {
