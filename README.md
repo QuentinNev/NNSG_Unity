@@ -1,6 +1,9 @@
 # NNSG_Unity
 NNSG integrated to Unity
 
+## Versions
+**Unity** : 2020.3.24f1
+
 ## Project structure
 ### Folder naming convention
 ![image](https://user-images.githubusercontent.com/31761067/157824568-ca7dc80a-b62f-4a56-b3f6-672812288334.png)
