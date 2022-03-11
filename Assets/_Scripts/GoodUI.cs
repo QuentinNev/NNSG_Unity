@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class ResourceUI : MonoBehaviour
+public class GoodUI : MonoBehaviour
 {
     public NNSG.Goods.Good good { get; set; }
     

@@ -8,7 +8,7 @@ public class ResourceDisplayer : MonoBehaviour
 {
     List<Good> goods = new List<Good>();
     [SerializeField]
-    private ResourceUI _resourceTemplate;
+    private GoodUI _goodTemplate;
 
     private void Start()
     {
@@ -23,11 +23,11 @@ public class ResourceDisplayer : MonoBehaviour
         {
             foreach (Good g in goods)
             {
-                ResourceUI resource = Instantiate(_resourceTemplate);
+                GoodUI resource = Instantiate(_goodTemplate);
                 resource.Configure(g.GetType().ToString(), g.amount);
             }
         }
 
-        _resourceTemplate.gameObject.SetActive(false);
+        _goodTemplate.gameObject.SetActive(false);
     }
 }
