@@ -4,7 +4,7 @@ using System.Text;
 
 namespace NNSG.Goods
 {
-    abstract class Good
+    public abstract class Good
     {
         public float price;
         public float amount;
