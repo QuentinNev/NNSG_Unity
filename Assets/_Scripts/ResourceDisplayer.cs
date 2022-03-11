@@ -8,9 +8,10 @@ public class ResourceDisplayer : MonoBehaviour
 {
     List<Good> goods = new List<Good>();
     [SerializeField]
-    private ResourceUI _resourceUI;
+    private ResourceUI _resourceTemplate;
 
-    private void Start() {
+    private void Start()
+    {
         // Get all goods
         goods.Add(Warehouse.food);
         goods.Add(Warehouse.furniture);
@@ -20,7 +21,13 @@ public class ResourceDisplayer : MonoBehaviour
         // Check if Warehouse was correctly initialized
         if (goods.Count > 0 && goods[0] != null)
         {
-
+            foreach (Good g in goods)
+            {
+                ResourceUI resource = Instantiate(_resourceTemplate);
+                resource.Configure(g.GetType().ToString(), g.amount);
+            }
         }
+
+        _resourceTemplate.gameObject.SetActive(false);
     }
 }
