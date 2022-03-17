@@ -1,4 +1,4 @@
-using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using NNSG;
@@ -9,6 +9,9 @@ public class ResourceDisplayer : MonoBehaviour
     List<Good> goods = new List<Good>();
     [SerializeField]
     private GoodUI _goodTemplate;
+    [SerializeField]
+    private Transform _container;
+    private List<GoodUI> _goodUIs = new List<GoodUI>();
 
     private void Start()
     {
@@ -23,8 +26,9 @@ public class ResourceDisplayer : MonoBehaviour
         {
             foreach (Good g in goods)
             {
-                GoodUI resource = Instantiate(_goodTemplate, transform);
-                resource.Configure(g.GetType().ToString(), g.amount);
+                GoodUI resource = Instantiate(_goodTemplate, _container);
+                resource.Configure(g);
+                _goodUIs.Add(resource);
             }
         }
         else
@@ -33,5 +37,10 @@ public class ResourceDisplayer : MonoBehaviour
         }
 
         _goodTemplate.gameObject.SetActive(false);
+    }
+
+    public void RefreshResources()
+    {
+        _goodUIs.ForEach(good => good.UpdateValue());
     }
 }

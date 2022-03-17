@@ -5,7 +5,7 @@ using TMPro;
 
 public class GoodUI : MonoBehaviour
 {
-    public NNSG.Goods.Good good { get; set; }
+    private NNSG.Goods.Good _good { get; set; }
     
     [SerializeField]
     private TextMeshProUGUI _label;
@@ -13,14 +13,15 @@ public class GoodUI : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _value;
 
-    public void Configure(string label, float value)
+    public void Configure(NNSG.Goods.Good good)
     {
-        _label.SetText(label);
-        _value.SetText(value.ToString());
+        this._good = good;
+        UpdateValue();
+        _label.SetText(this._good.GetType().Name);
     }
 
-    public void UpdateValue(float value)
+    public void UpdateValue()
     {
-        _value.SetText(value.ToString());
+        _value.SetText(_good.amount.ToString());
     }
 }

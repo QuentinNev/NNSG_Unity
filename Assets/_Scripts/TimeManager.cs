@@ -5,6 +5,8 @@ using NNSG;
 
 public class TimeManager : MonoBehaviour
 {
+    [SerializeField]
+    ResourceDisplayer _resourceDisplayer;
     private NNSG.Time _time;
 
     /// <summary>
@@ -23,6 +25,9 @@ public class TimeManager : MonoBehaviour
         {
             _timer = _time.tickInterval;
         }
+
+        if (!_resourceDisplayer)
+            _resourceDisplayer = FindObjectOfType<ResourceDisplayer>();
     }
 
     // Update is called once per frame
@@ -32,7 +37,7 @@ public class TimeManager : MonoBehaviour
         {
             _timer = _time.tickInterval;
             _time.TickAll();
-            print("TICK");
+            _resourceDisplayer.RefreshResources();
         }
         else
         {
