@@ -33,6 +33,7 @@ namespace NNSG
         {
             if (instance == null)
             {
+                Console.WriteLine("FUCK");
                 instance = new UI();
             }
             return instance;

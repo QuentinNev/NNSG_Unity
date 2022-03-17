@@ -23,9 +23,13 @@ public class ResourceDisplayer : MonoBehaviour
         {
             foreach (Good g in goods)
             {
-                GoodUI resource = Instantiate(_goodTemplate);
+                GoodUI resource = Instantiate(_goodTemplate, transform);
                 resource.Configure(g.GetType().ToString(), g.amount);
             }
+        }
+        else
+        {
+            Debug.LogError("Couldn't find any Good, make sure GameManager is running");
         }
 
         _goodTemplate.gameObject.SetActive(false);
