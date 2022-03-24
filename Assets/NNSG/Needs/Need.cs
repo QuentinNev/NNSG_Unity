@@ -1,4 +1,8 @@
-﻿namespace NNSG.Needs
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace NNSG.Needs
 {
     abstract class Need
     {
