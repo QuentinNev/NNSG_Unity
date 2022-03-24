@@ -5,6 +5,8 @@ using TMPro;
 
 public class GoodUI : MonoBehaviour
 {
+    
+    [SerializeField]
     private NNSG.Goods.Good _good { get; set; }
     
     [SerializeField]

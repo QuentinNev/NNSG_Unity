@@ -36,7 +36,7 @@ public class ResourceDisplayer : MonoBehaviour
             Debug.LogError("Couldn't find any Good, make sure GameManager is running");
         }
 
-        _goodTemplate.gameObject.SetActive(false);
+        //_goodTemplate.gameObject.SetActive(false);
     }
 
     public void RefreshResources()
