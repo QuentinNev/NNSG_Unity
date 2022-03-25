@@ -1,21 +1,22 @@
-using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField]
-    ResourceDisplayer _resourceDisplayer;
-    [SerializeField]
+    public ResourceDisplayer _resourceDisplayer;
     private ValueUI _population;
-    [SerializeField]
     private ValueUI _happiness;
 
     private void Start()
     {
-        
         if (!_resourceDisplayer)
+        {
             _resourceDisplayer = FindObjectOfType<ResourceDisplayer>();
+        }
+
+        if (!_population) _population = transform.Find("Population").GetComponent<ValueUI>();
+        if (!_happiness) _happiness = transform.Find("GlobalHappiness").GetComponent<ValueUI>();
     }
 
     public void Ticking()
