@@ -4,7 +4,7 @@ using System.Text;
 
 namespace NNSG.Jobs
 {
-    abstract class Job : ITick
+    public abstract class Job : ITick
     {        
         /// <summary>
         /// How much resource is produced each tick
