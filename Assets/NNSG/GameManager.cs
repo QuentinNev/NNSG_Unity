@@ -27,6 +27,7 @@ namespace NNSG
         private void Awake()
         {
             DontDestroyOnLoad(this);
+            instance = this;
 
             instance = this;
 
