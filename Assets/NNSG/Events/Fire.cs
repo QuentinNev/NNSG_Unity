@@ -11,7 +11,7 @@ namespace NNSG.Events
     class Fire : Disaster
     {
         int luck = 1000;
-
+        int t = 1;
         public Fire()
         {
             Time.GetInstance().Subscribe(this);
@@ -32,6 +32,8 @@ namespace NNSG.Events
                 UI.getInstance().Write((int)deadPeople + " personnes ont brulée");
                 UI.getInstance().Write((int)foodLoss + " de nourriture à été détruite");
                 CmdSkipDay.trigger = true;
+                FireTrigger.Trigger();
+
             }
         }
     }

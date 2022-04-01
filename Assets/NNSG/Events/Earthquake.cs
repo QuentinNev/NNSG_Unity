@@ -11,8 +11,6 @@ namespace NNSG.Events
     class Earthquake : Disaster
     {
         int luck = 1000;
-
-
         public Earthquake()
         {
             Time.GetInstance().Subscribe(this);
@@ -33,6 +31,8 @@ namespace NNSG.Events
                 UI.getInstance().Write((int)deadPeople + " personnes ont tremblée et en sont mortes");
                 UI.getInstance().Write((int)foodLoss + " de nourriture à été détruite");
                 CmdSkipDay.trigger = true;
+                EarthquakeTrigger.TriggerEarthquake();
+
             }
         }
     }
