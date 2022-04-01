@@ -18,12 +18,14 @@ namespace NNSG
     public class GameManager : MonoBehaviour
     {
         private static GameManager instance;
-        private List<Job> allJobs = new List<Job>();
+        public List<Job> allJobs = new List<Job>();
 
         private Config config;
         private void Awake()
         {
             DontDestroyOnLoad(this);
+
+            instance = this;
 
             allJobs.Add(Tailor.GetInstance());
             allJobs.Add(Artisan.GetInstance());
