@@ -2,16 +2,9 @@ using UnityEngine;
 using TMPro;
 
 public class GoodUI : LabelValueUI
-{
-    
+{    
     [SerializeField]
     private NNSG.Goods.Good _good { get; set; }
-    
-    [SerializeField]
-    private TextMeshProUGUI _label;
-
-    [SerializeField]
-    private TextMeshProUGUI _value;
 
     public override void Configure(){}
 

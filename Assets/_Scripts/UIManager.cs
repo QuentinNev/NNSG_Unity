@@ -5,6 +5,7 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     public ResourceDisplayer _resourceDisplayer;
+    public JobUI _jobUI;
     private ValueUI _population;
     private ValueUI _happiness;
 
@@ -22,6 +23,7 @@ public class UIManager : MonoBehaviour
     public void Ticking()
     {
         _resourceDisplayer.RefreshResources();
+        _jobUI.RefreshValues();
         _happiness.UpdateValue(NNSG.Person.GetGlobalHappiness());
         _population.UpdateValue(NNSG.Person.people.Count);
     }
