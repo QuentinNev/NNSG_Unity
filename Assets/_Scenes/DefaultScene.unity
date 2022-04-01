@@ -8343,6 +8343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 1474180487755150138, guid: fb8c19e7c3e451045906b3cfaf88f8fc, type: 3}
+  scrollView: {fileID: 0}
 --- !u!1 &285704648
 GameObject:
   m_ObjectHideFlags: 0

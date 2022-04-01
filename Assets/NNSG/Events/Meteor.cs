@@ -19,6 +19,8 @@ namespace NNSG.Events
 
         public override void Ticking()
         {
+            MeteorCollide.SpawnMeteor();
+
             if (Randomizer.Range(0,luck) == luck-1)
             {
                 foreach (var message in Lang.GetInstance().meteor)
@@ -32,6 +34,7 @@ namespace NNSG.Events
                 UI.getInstance().Write((int)deadPeople + " personnes sont en bouillie");
                 UI.getInstance().Write((int)foodLoss + " de nourriture à été détruite");
                 CmdSkipDay.trigger = true;
+
             }
         }
 
