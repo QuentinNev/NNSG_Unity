@@ -26,6 +26,8 @@ namespace NNSG
             DontDestroyOnLoad(this);
             instance = this;
 
+            instance = this;
+
             allJobs.Add(Tailor.GetInstance());
             allJobs.Add(Artisan.GetInstance());
             allJobs.Add(Farmer.GetInstance());

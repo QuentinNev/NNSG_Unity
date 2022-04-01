@@ -1,19 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class GoodUI : MonoBehaviour
-{
-    
+public class GoodUI : LabelValueUI
+{    
     [SerializeField]
     private NNSG.Goods.Good _good { get; set; }
-    
-    [SerializeField]
-    private TextMeshProUGUI _label;
 
-    [SerializeField]
-    private TextMeshProUGUI _value;
+    public override void Configure(){}
 
     public void Configure(NNSG.Goods.Good good)
     {
@@ -22,7 +15,7 @@ public class GoodUI : MonoBehaviour
         _label.SetText(this._good.GetType().Name);
     }
 
-    public void UpdateValue()
+    public override void UpdateValue()
     {
         _value.SetText(_good.amount.ToString());
     }
