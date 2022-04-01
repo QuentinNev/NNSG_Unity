@@ -11,20 +11,23 @@ public class UISliders : MonoBehaviour
     private UISlider _slider;
     [SerializeField]
     private Transform scrollView;
-    private List<Job> _allJobs = new List<Job>();
+    public Button openSliders;
 
     public void Start()
     {
-        _allJobs.Add(Tailor.GetInstance());
-        _allJobs.Add(Artisan.GetInstance());
-        _allJobs.Add(Farmer.GetInstance());
-        _allJobs.Add(Mechanic.GetInstance());
+        gameObject.SetActive(false);
+        openSliders.onClick.AddListener(OpenSliders);
 
-
-        foreach (Job job in _allJobs)
+        foreach (Job job in GameManager.GetInstance().allJobs)
         {
             UISlider slider = Instantiate(_slider, scrollView);
-            slider.Configure(job);
+            slider.Configure(job, job.GetType().Name);
         }
+    }
+
+    void OpenSliders()
+    {
+        //change visibility of this object
+        gameObject.SetActive(!gameObject.activeSelf);
     }
 }
