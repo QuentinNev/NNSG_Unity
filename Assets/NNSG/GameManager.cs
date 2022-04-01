@@ -19,7 +19,10 @@ namespace NNSG
     {
         private static GameManager instance;
         public List<Job> allJobs = new List<Job>();
-
+        public GameObject meteor;
+        public GameObject explosion;
+        public GameObject incendie;
+        public GameObject terrain;
         private Config config;
         private void Awake()
         {
