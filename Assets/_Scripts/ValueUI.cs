@@ -5,9 +5,9 @@ using UnityEngine;
 public class ValueUI : MonoBehaviour
 {
     [SerializeField]
-    TMPro.TextMeshProUGUI _textValue;
+    protected TMPro.TextMeshProUGUI _textValue;
 
-    public void UpdateValue(int value)
+    public virtual void UpdateValue(int value)
     {
         _textValue.SetText(value.ToString());
     }

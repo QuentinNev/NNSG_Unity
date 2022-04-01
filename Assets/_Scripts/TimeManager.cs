@@ -7,7 +7,10 @@ public class TimeManager : MonoBehaviour
 {
     [SerializeField]
     private UIManager _uIManager;
+    [SerializeField]
+    private DaysUI _daysUI;
     private NNSG.Time _time;
+    public static float _timeFactor = 1f;
 
     /// <summary>
     /// Used to track elapsed time in order to trigger ticks
@@ -35,10 +38,11 @@ public class TimeManager : MonoBehaviour
             _timer = _time.tickInterval;
             _time.TickAll();
             _uIManager.Ticking();
+            _daysUI.UpdateValue(NNSG.Time.GetInstance().elaspedTime);
         }
         else
         {
-            _timer -= UnityEngine.Time.deltaTime;
+            _timer -= UnityEngine.Time.deltaTime * _timeFactor;
         }
     }
 }
