@@ -7,8 +7,6 @@ public class TimeManager : MonoBehaviour
 {
     [SerializeField]
     private UIManager _uIManager;
-    [SerializeField]
-    private DaysUI _daysUI;
     private NNSG.Time _time;
     public static float _timeFactor = 1f;
 
@@ -38,7 +36,6 @@ public class TimeManager : MonoBehaviour
             _timer = _time.tickInterval;
             _time.TickAll();
             _uIManager.Ticking();
-            _daysUI.UpdateValue(NNSG.Time.GetInstance().elaspedTime);
         }
         else
         {
