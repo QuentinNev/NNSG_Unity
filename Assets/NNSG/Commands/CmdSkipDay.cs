@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Linq;
 
 namespace NNSG.Commands
 {
@@ -16,8 +15,6 @@ namespace NNSG.Commands
 
         public override void Execute(List<string> args)
         {
-            Dictionary<string, float> values = Tools.CacheValues();
-
             int days = 0;
             if (int.TryParse(args[0],out int res) && args.Count >= 1)
             {
@@ -39,10 +36,7 @@ namespace NNSG.Commands
                 Time.GetInstance().TickAll();
                 UI.getInstance().Write("A new day has come");
             }
-
-            List<string> stringValues = values.Select(o => o.Value.ToString()).ToList();
-
-            Command.commands["resources"].Execute(stringValues);
+            Command.commands["resources"].Execute(null);
         }
     }
 }

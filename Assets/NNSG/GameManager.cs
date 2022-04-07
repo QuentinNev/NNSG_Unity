@@ -18,11 +18,19 @@ namespace NNSG
     public class GameManager : MonoBehaviour
     {
         private static GameManager instance;
-        private List<Job> allJobs = new List<Job>();
-
+        public List<Job> allJobs = new List<Job>();
+        public GameObject meteor;
+        public GameObject explosion;
+        public GameObject incendie;
+        public GameObject terrain;
         private Config config;
-        private GameManager()
+        private void Awake()
         {
+            DontDestroyOnLoad(this);
+            instance = this;
+
+            instance = this;
+
             allJobs.Add(Tailor.GetInstance());
             allJobs.Add(Artisan.GetInstance());
             allJobs.Add(Farmer.GetInstance());
@@ -34,6 +42,8 @@ namespace NNSG
             {
                 Command.RegisterCommands();
             }
+
+            StartGame();
         }
 
         public static GameManager GetInstance()
@@ -72,14 +82,15 @@ namespace NNSG
             new Fire();
 
             new Insurrection();
-            
+            #if !UNITY_64
             UI.getInstance().Write("Game is starting ...");
             KeepConsoleAlive();
+            #endif
         }
 
         public void LoadLang()
         {
-            Lang.SetInstance(JsonConvert.DeserializeObject<Lang>(File.ReadAllText("lang/fr.json")));
+            Lang.SetInstance(JsonConvert.DeserializeObject<Lang>(File.ReadAllText("Assets/NNSG/lang/fr.json")));
         }
         public void Restart()
         {
@@ -126,14 +137,14 @@ namespace NNSG
             Warehouse.furniture = new Furniture(config.furniture, 100);
         }
 
-        
+
         /// <summary>
         /// Create jobs given the configuration
         /// </summary>
         /// <typeparam name="T">The type of the job</typeparam>
         /// <param name="workers">The amount of f</param>
         private void AddWorkers<T>(int workers) where T : Job
-        { 
+        {
             foreach (Job job in allJobs)
             {
                 if (job is T)
